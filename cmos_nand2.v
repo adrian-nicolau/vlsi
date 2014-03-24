@@ -1,4 +1,4 @@
-module cmos_nand(input a, b, output out);
+module cmos_nand2(input a, b, output out);
 	supply1 vdd;
 	supply0 vss;
 	wire w;

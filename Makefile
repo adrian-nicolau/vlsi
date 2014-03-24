@@ -1,21 +1,21 @@
-all: cmos_inverter cmos_nor cmos_nand
+all: cmos_inverter cmos_nor2 cmos_nand2
 
 cmos_inverter: cmos_inverter.v cmos_inverter_tb.v
 	iverilog -o $@ $^
 
-cmos_nor: cmos_nor.v cmos_nor_tb.v
+cmos_nor2: cmos_nor2.v cmos_nor2_tb.v
 	iverilog -o $@ $^
 
-cmos_nand: cmos_nand.v cmos_nand_tb.v
+cmos_nand2: cmos_nand2.v cmos_nand2_tb.v
 	iverilog -o $@ $^
 
 run:
 	@echo "CMOS Inverter"
 	vvp cmos_inverter
 	@echo "CMOS NOR"
-	vvp cmos_nor
+	vvp cmos_nor2
 	@echo "CMOS NAND"
-	vvp cmos_nand
+	vvp cmos_nand2
 
 clean:
-	rm -rf cmos_inverter cmos_nand cmos_nor
+	rm -rf cmos_inverter cmos_nand2 cmos_nor2
