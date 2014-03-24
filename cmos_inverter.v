@@ -1,4 +1,4 @@
-module inversor(in1, out1);
+module cmos_inverter(in1, out1);
 	input in1;
 	output out1;
 	supply1 vdd;
