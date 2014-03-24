@@ -1,4 +1,4 @@
 cmos_inverter
-cmos_nand
-cmos_nor
+cmos_nand2
+cmos_nor2
 *.swp
