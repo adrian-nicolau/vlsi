@@ -1,4 +1,15 @@
+cmos_and2
+cmos_and3
+cmos_or2
+cmos_or3
 cmos_inverter
 cmos_nand2
+cmos_nand3
 cmos_nor2
+cmos_nor3
+cmos_xor2
+cmos_xor3
+cmos_xnor2
+cmos_xnor3
 *.swp
+*~
