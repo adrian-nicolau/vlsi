@@ -30,7 +30,7 @@ cmos_nand2: cmos_nand2.v cmos_nand2_tb.v
 	@echo "CMOS NAND2"
 	vvp $@
 
-cmos_nand3: cmos_nand3.v cmos_nand3_tb.v
+cmos_nand3: cmos_nand3.v cmos_nand3_tb.v cmos_and2.v cmos_inverter.v cmos_nand2.v
 	iverilog -o $@ $^
 	@echo "CMOS NAND3"
 	vvp $@
