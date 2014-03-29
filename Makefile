@@ -5,7 +5,7 @@ cmos_and2: cmos_and2.v cmos_and2_tb.v cmos_inverter.v cmos_nand2.v
 	@echo "CMOS AND2"
 	vvp $@
 
-cmos_and3: cmos_and3.v cmos_and3_tb.v cmos_inverter.v cmos_nand3.v
+cmos_and3: cmos_and3.v cmos_and3_tb.v cmos_and2.v cmos_inverter.v cmos_nand2.v 
 	iverilog -o $@ $^
 	@echo "CMOS AND3"
 	vvp $@
