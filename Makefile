@@ -40,7 +40,7 @@ cmos_nor2: cmos_nor2.v cmos_nor2_tb.v
 	@echo "CMOS NOR2"
 	vvp $@
 
-cmos_nor3: cmos_nor3.v cmos_nor3_tb.v
+cmos_nor3: cmos_nor3.v cmos_nor3_tb.v cmos_or3.v cmos_or2.v cmos_nor2.v cmos_inverter.v
 	iverilog -o $@ $^
 	@echo "CMOS NOR3"
 	vvp $@
