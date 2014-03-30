@@ -50,7 +50,7 @@ cmos_xor2: cmos_xor2.v cmos_xor2_tb.v cmos_nor2.v
 	@echo "CMOS XOR2"
 	vvp $@
 
-cmos_xor3: cmos_xor3.v cmos_xor3_tb.v
+cmos_xor3: cmos_xor3.v cmos_xor3_tb.v cmos_xor2.v cmos_nor2.v
 	iverilog -o $@ $^
 	@echo "CMOS XOR3"
 	vvp $@
@@ -60,7 +60,7 @@ cmos_xnor2: cmos_xnor2.v cmos_xnor2_tb.v cmos_nor2.v
 	@echo "CMOS XNOR2"
 	vvp $@
 
-cmos_xnor3: cmos_xnor3.v cmos_xnor3_tb.v cmos_nor2.v
+cmos_xnor3: cmos_xnor3.v cmos_xnor3_tb.v cmos_xor3.v cmos_xor2.v cmos_nor2.v cmos_inverter.v
 	iverilog -o $@ $^
 	@echo "CMOS XNOR3"
 	vvp $@
