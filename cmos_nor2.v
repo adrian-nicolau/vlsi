@@ -1,11 +1,12 @@
-module cmos_nor2(input a, b, output out);
+module cmos_nor2(input a, b, output y);
 	supply1 vdd;
-	supply0 vss;
+	supply0 gnd;
 	wire w;
-	// NOR gate body
-	pmos p1(w, vdd, b);
-	pmos p2(out, w, a);
-	nmos n1(out, vss, a);
-	nmos n2(out, vss, b);
+
+	nmos q1(y, gnd, a);
+	nmos q2(y, gnd, b);
+
+	pmos q3(w, vdd, a);
+	pmos q4(y, w, b);
 endmodule
 

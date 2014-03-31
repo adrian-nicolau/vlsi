@@ -1,9 +1,14 @@
 module cmos_xnor2(input a, b, output out);
-	wire w1, w2, w3;
-	// XNOR gate body, 2 input
-	cmos_nor2 nor1(a, b, w1);
-	cmos_nor2 nor2(a, w1, w2);
-	cmos_nor2 nor3(w1, b, w3);
-	cmos_nor2 nor4(w2, w3, out);
+	wire w;
+	supply1 vdd;
+	supply0 gnd;
+
+	pmos q1(w, vdd, a);
+	pmos q2(out, w, b);
+	pmos q3(out, b, w);
+
+	nmos q5(w, gnd, a);
+	nmos q6(out, a, b);
+	nmos q4(out, b, a);
 endmodule
 

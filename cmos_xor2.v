@@ -1,10 +1,17 @@
-module cmos_xor2(input a, b, output out);
-	wire w1, w2, w3, w4;
-	// XOR gate body, 2 input
-	cmos_nor2 nor1(a, a, w1);
-	cmos_nor2 nor2(b, b, w2);
-	cmos_nor2 nor3(w1, w2, w3);
-	cmos_nor2 nor4(a, b, w4);
-	cmos_nor2 nor5(w3, w4, out);
+module cmos_xor2(input a, b, output y);
+	wire w1, w2;
+	supply1 vdd;
+	supply0 gnd;
+
+	pmos q1(w1, vdd, a);
+	pmos q2(w2, w1, b);
+	pmos q3(w2, b, w1);
+
+	nmos q5(w1, gnd, a);
+	nmos q6(w2, a, b);
+	nmos q4(w2, b, a);
+
+	nmos q7(y, gnd, w2);
+	pmos q8(y, vdd, w2);
 endmodule
 
