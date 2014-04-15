@@ -1,6 +1,6 @@
 Very-large-scale integration
 =========
----
+
 **Repository for VLSI homework assignments**
 
 - Adrian Nicolau
