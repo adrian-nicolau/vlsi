@@ -1,43 +1,25 @@
 module CLA_4bit_tb;
-    // Inputs
-    reg [3:0] A;
-    reg [3:0] B;
-    reg Cin;
+	reg a0, a1, a2, a3, b0, b1, b2, b3;
+	reg c_in;
+	wire sum0, sum1, sum2, sum3;
+	wire c_out;
 
-    // Outputs
-    wire [3:0] S;
-    wire Cout;
-    wire PG;
-    wire GG;
+	CLA_4bit CLA_4bit_ins(a0, a1, a2, a3, b0, b1, b2, b3, c_in, sum0, sum1, sum2, sum3, c_out);
 
-    // Instantiate the Unit Under Test (UUT)
-    CLA_4bit uut(
-    .S(S),
-    .Cout(Cout),
-    .PG(PG),
-    .GG(GG),
-    .A(A),
-    .B(B),
-    .Cin(Cin)
-    );
+	initial
+	begin
+		$monitor($time,"\nA3=%b, A2=%b, A1=%b, A0=%b\nB3=%b, B2=%b, B1=%b, B0=%b, C_IN=%b, C_OUT=%b\nS3=%b, S2=%b, S1=%b, S0=%b\n", a3, a2, a1, a0, b3, b2, b1, b0, c_in, c_out, sum3, sum2, sum1, sum0);
+	end
 
-    initial begin
-        // Initialize Inputs
-        A = 0;
-        B = 0;
-        Cin = 0;
-        // Wait 100 ns for global reset to finish
-        #100;
+	initial
+	begin
+		a3 = 1'b0; a2 = 1'b0; a1 = 1'b0; a0 = 1'b0; b3 = 1'b0; b2 = 1'b0; b1 = 1'b0; b0 = 1'b0; c_in = 1'b0;
+		#5 a3 = 1'b0; a2 = 1'b0; a1 = 1'b1; a0 = 1'b1; b3 = 1'b0; b2 = 1'b1; b1 = 1'b0; b0 = 1'b0; c_in = 1'b0;
+		#5 a3 = 1'b0; a2 = 1'b0; a1 = 1'b1; a0 = 1'b0; b3 = 1'b0; b2 = 1'b1; b1 = 1'b0; b0 = 1'b1; c_in = 1'b0;
+		#5 a3 = 1'b1; a2 = 1'b0; a1 = 1'b0; a0 = 1'b1; b3 = 1'b1; b2 = 1'b0; b1 = 1'b0; b0 = 1'b1; c_in = 1'b0;
+		#5 a3 = 1'b1; a2 = 1'b0; a1 = 1'b1; a0 = 1'b0; b3 = 1'b1; b2 = 1'b1; b1 = 1'b1; b0 = 1'b1; c_in = 1'b0;
+		#5 a3 = 1'b1; a2 = 1'b0; a1 = 1'b1; a0 = 1'b0; b3 = 1'b0; b2 = 1'b1; b1 = 1'b0; b0 = 1'b1; c_in = 1'b1;
+	end 
+	 
+endmodule 
 
-        // Add stimulus here
-        A=4'b0001;     B=4'b0000; Cin=1'b0;
-        #10 A=4'b0100; B=4'b0011; Cin=1'b0;
-        #10 A=4'b1101; B=4'b1010; Cin=1'b1;
-        #10 A=4'b1110; B=4'b1001; Cin=1'b0;
-        #10 A=4'b1111; B=4'b1010; Cin=1'b0;
-    end 
- 
-    initial begin
-        $monitor("time=", $time,,"A=%b B=%b Cin=%b : Sum=%b Cout=%b PG=%b GG=%b", A, B, Cin, S, Cout, PG, GG);
-    end
-endmodule
