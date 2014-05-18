@@ -9,4 +9,4 @@ run:
 	vvp CLA_4bit
 
 clean:
-	rm CLA_4bit
+	rm CLA_4bit *~

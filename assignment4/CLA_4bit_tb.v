@@ -13,13 +13,18 @@ module CLA_4bit_tb;
 
 	initial
 	begin
+		// 0 + 0
 		a3 = 1'b0; a2 = 1'b0; a1 = 1'b0; a0 = 1'b0; b3 = 1'b0; b2 = 1'b0; b1 = 1'b0; b0 = 1'b0; c_in = 1'b0;
+		// 3 + 4
 		#5 a3 = 1'b0; a2 = 1'b0; a1 = 1'b1; a0 = 1'b1; b3 = 1'b0; b2 = 1'b1; b1 = 1'b0; b0 = 1'b0; c_in = 1'b0;
+		// 2 + 5
 		#5 a3 = 1'b0; a2 = 1'b0; a1 = 1'b1; a0 = 1'b0; b3 = 1'b0; b2 = 1'b1; b1 = 1'b0; b0 = 1'b1; c_in = 1'b0;
+		// 9 + 9
 		#5 a3 = 1'b1; a2 = 1'b0; a1 = 1'b0; a0 = 1'b1; b3 = 1'b1; b2 = 1'b0; b1 = 1'b0; b0 = 1'b1; c_in = 1'b0;
+		// 10 + 15
 		#5 a3 = 1'b1; a2 = 1'b0; a1 = 1'b1; a0 = 1'b0; b3 = 1'b1; b2 = 1'b1; b1 = 1'b1; b0 = 1'b1; c_in = 1'b0;
+		// 10 + 5 + C_IN
 		#5 a3 = 1'b1; a2 = 1'b0; a1 = 1'b1; a0 = 1'b0; b3 = 1'b0; b2 = 1'b1; b1 = 1'b0; b0 = 1'b1; c_in = 1'b1;
-	end 
-	 
-endmodule 
+	end
 
+endmodule
